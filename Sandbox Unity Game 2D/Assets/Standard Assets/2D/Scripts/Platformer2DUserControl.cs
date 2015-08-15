@@ -30,10 +30,10 @@ namespace UnityStandardAssets._2D
         private void FixedUpdate()
         {
             // Read the inputs.
-            bool crouch = Input.GetKey(KeyCode.LeftControl);
-            float h = CrossPlatformInputManager.GetAxis("Horizontal");
+            float move_x = CrossPlatformInputManager.GetAxis("Horizontal");
+			float move_y = CrossPlatformInputManager.GetAxis("Vertical");
             // Pass all parameters to the character control script.
-            m_Character.Move(h, crouch, m_Jump);
+            m_Character.Move(move_x,move_y);
             m_Jump = false;
         }
     }
