@@ -1,8 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Standard Assets\2D\Sprites\TileShader.shader">
     <Files>
-      <File FileName="Assets\Standard Assets\2D\Sprites\TileShader.shader" Line="34" Column="3" />
+      <File FileName="Assets\Standard Assets\2D\Sprites\TileShader.shader" Line="71" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
