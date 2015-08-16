@@ -1,8 +1,13 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Standard Assets\2D\Sprites\TileShader.shader">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\AdventurerAI.cs">
     <Files>
-      <File FileName="Assets\Standard Assets\2D\Sprites\TileShader.shader" Line="71" Column="2" />
+      <File FileName="Assets\Standard Assets\2D\Sprites\TileShader.shader" Line="59" Column="28" />
+      <File FileName="Assets\AntAI.cs" Line="50" Column="3" />
+      <File FileName="Assets\CreatureBase.cs" Line="18" Column="3" />
+      <File FileName="Assets\AdventurerAI.cs" Line="51" Column="36" />
+      <File FileName="Assets\TileAdder.cs" Line="18" Column="54" />
+      <File FileName="Assets\TopBorderSetter.cs" Line="9" Column="59" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
