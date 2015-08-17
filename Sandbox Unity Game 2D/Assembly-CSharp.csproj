@@ -46,7 +46,10 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\AdventurerAI.cs" />
      <Compile Include="Assets\AntAI.cs" />
+     <Compile Include="Assets\CreatureBase.cs" />
+     <Compile Include="Assets\EntrancePlacer.cs" />
      <Compile Include="Assets\TileAdder.cs" />
      <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
