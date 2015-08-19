@@ -48,6 +48,10 @@ public class AdventurerAI : CreatureBase
 				* moveSpeed * Time.deltaTime;
 		} else {
 			target = GameObject.FindGameObjectWithTag("ant");
+			// if we still couldn't find any ants to kill, attack a mound
+			if (target == null) {
+				target = GameObject.FindGameObjectWithTag("antMound");
+			}
 		}
 		GetComponent<Rigidbody2D>().velocity = Vector3.zero;
 		if (hitTimer > 0) {
