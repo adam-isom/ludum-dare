@@ -30,7 +30,7 @@ public class CreatureBase : MonoBehaviour {
 		return false;
 	}
 
-	void OnCollisionStay2D(Collision2D collision) {
+	public virtual void OnCollisionStay2D(Collision2D collision) {
 		CreatureBase otherScript = (CreatureBase)collision.gameObject.GetComponent("CreatureBase");
 		if (otherScript != null) {
 			if (otherScript.team != team && hitTimer == 0) {
@@ -42,7 +42,7 @@ public class CreatureBase : MonoBehaviour {
 				}
 				//this.gameObject.GetComponent<Animator>().SetTrigger("attack");
 				hitTimer = hitCooldown;
-				Debug.Log("Damaging other entity: " + damage + " w/ AD: " + armorDivisor);
+				//Debug.Log("Damaging other entity: " + damage + " w/ AD: " + armorDivisor);
 				if (otherScript.TakeDamage(damage, armorDivisor)) {
 					Destroy(collision.gameObject);
 					target = null;

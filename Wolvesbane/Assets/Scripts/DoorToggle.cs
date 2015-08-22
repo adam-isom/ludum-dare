@@ -16,7 +16,10 @@ public class DoorToggle : CreatureBase {
 	public override bool TakeDamage(int amount, float armorDivisor) {
 		this.gameObject.GetComponent<BoxCollider2D>().enabled = !this.gameObject.GetComponent<BoxCollider2D>().enabled;
 		this.gameObject.GetComponent<SpriteRenderer>().enabled = !this.gameObject.GetComponent<SpriteRenderer>().enabled;
-		Debug.Log("HELLO");
 		return false;
+	}
+
+	public override void OnCollisionStay2D(Collision2D collision) {
+		return;
 	}
 }
