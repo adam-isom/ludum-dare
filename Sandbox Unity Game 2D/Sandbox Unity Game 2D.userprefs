@@ -1,6 +1,13 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="../Wolvesbane/Assets/Scripts/RoomScript.cs">
+    <Files>
+      <File FileName="../Wolvesbane/Assets/Scripts/RoomScript.cs" Line="23" Column="38" />
+      <File FileName="Assets/AdventurerAI.cs" Line="1" Column="1" />
+      <File FileName="Assets/CreatureBase.cs" Line="1" Column="1" />
+      <File FileName="../Wolvesbane/Assets/Scripts/TileScript.cs" Line="18" Column="43" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
