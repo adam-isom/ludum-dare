@@ -47,6 +47,9 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\AboveView2DUserControl.cs" />
+     <Compile Include="Assets\Scripts\AdventurerAI.cs" />
+     <Compile Include="Assets\Scripts\CreatureBase.cs" />
+     <Compile Include="Assets\Scripts\DoorToggle.cs" />
      <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
