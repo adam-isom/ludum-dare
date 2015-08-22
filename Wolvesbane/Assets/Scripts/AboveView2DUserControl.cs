@@ -5,7 +5,7 @@ using UnityStandardAssets.CrossPlatformInput;
 namespace UnityStandardAssets._2D
 {
     [RequireComponent(typeof (PlatformerCharacter2D))]
-    public class AboveView2DUserControl : MonoBehaviour
+    public class AboveView2DUserControl : CreatureBase
     {
         private PlatformerCharacter2D m_Character;
         private bool m_Jump;
@@ -24,6 +24,9 @@ namespace UnityStandardAssets._2D
                 // Read the jump input in Update so button presses aren't missed.
                 m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
             }
+			if (hitTimer > 0) {
+				hitTimer--;
+			}
         }
 
 

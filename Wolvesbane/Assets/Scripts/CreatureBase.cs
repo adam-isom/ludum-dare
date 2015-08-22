@@ -20,7 +20,7 @@ public class CreatureBase : MonoBehaviour {
 	}
 
 	//returns whether it died
-	bool TakeDamage(int amount, float armorDivisor) {
+	public virtual bool TakeDamage(int amount, float armorDivisor) {
 		health -= amount / Mathf.Max((armor/armorDivisor), 1);
 		if (health < 0) {
 			health = 0;
@@ -34,11 +34,15 @@ public class CreatureBase : MonoBehaviour {
 		CreatureBase otherScript = (CreatureBase)collision.gameObject.GetComponent("CreatureBase");
 		if (otherScript != null) {
 			if (otherScript.team != team && hitTimer == 0) {
-				collision.gameObject.GetComponent<Animator>().SetTrigger("hurt");
-				this.GetComponent<Animator>().SetTrigger("attack");
+				if (collision.gameObject.GetComponent<Animator>() != null) {
+					collision.gameObject.GetComponent<Animator>().SetTrigger("hurt");
+				}
+				if (this.GetComponent<Animator>() != null) {
+					this.GetComponent<Animator>().SetTrigger("attack");
+				}
 				//this.gameObject.GetComponent<Animator>().SetTrigger("attack");
 				hitTimer = hitCooldown;
-				//Debug.Log("Damaging other entity: " + damage + " w/ AD: " + armorDivisor);
+				Debug.Log("Damaging other entity: " + damage + " w/ AD: " + armorDivisor);
 				if (otherScript.TakeDamage(damage, armorDivisor)) {
 					Destroy(collision.gameObject);
 					target = null;
