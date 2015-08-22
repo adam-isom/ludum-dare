@@ -35,6 +35,11 @@ namespace UnityStandardAssets._2D
             // Pass all parameters to the character control script.
             m_Character.Move(move_x,move_y);
             m_Jump = false;
+
+			Vector3 cameraPosition = Camera.main.transform.position;
+			cameraPosition.x = this.transform.position.x;
+			cameraPosition.y = this.transform.position.y;
+			Camera.main.transform.position = cameraPosition;
         }
     }
 }
