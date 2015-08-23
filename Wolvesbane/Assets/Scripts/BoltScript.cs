@@ -14,7 +14,7 @@ public class BoltScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Rigidbody2D rigidbody = this.GetComponent<Rigidbody2D> ();
-		if (rigidbody.velocity.magnitude <= 8) {
+		if (rigidbody.velocity.magnitude <= 7) {
 			Destroy(this.gameObject);
 		}
 		//transform.rotation = Quaternion.LookRotation(rigidbody.velocity.normalized);
