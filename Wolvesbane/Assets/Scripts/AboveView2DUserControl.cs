@@ -35,7 +35,7 @@ public class AboveView2DUserControl : CreatureBase
 		// Read the inputs.
 		float move_x = CrossPlatformInputManager.GetAxis("Horizontal");
 		float move_y = CrossPlatformInputManager.GetAxis("Vertical");
-
+		
 		//Animation logic
 		if (Mathf.Abs(move_x) > Mathf.Abs(move_y)) {
 			anim.SetBool ("Walking", true);
