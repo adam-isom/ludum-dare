@@ -1,16 +1,10 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/MonsterHealthBarScript.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\AboveView2DUserControl.cs">
     <Files>
-      <File FileName="../Sandbox Unity Game 2D/Assets/AdventurerAI.cs" Line="27" Column="27" />
-      <File FileName="../Sandbox Unity Game 2D/Assets/CreatureBase.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/CreatureBase.cs" Line="33" Column="4" />
-      <File FileName="Assets/Scripts/AboveView2DUserControl.cs" Line="183" Column="2" />
-      <File FileName="Assets/Scripts/BoltCaseScript.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/BoltScript.cs" Line="17" Column="23" />
-      <File FileName="Assets/Scripts/HealthBarScript.cs" Line="19" Column="98" />
-      <File FileName="Assets/Scripts/MonsterAI.cs" Line="53" Column="62" />
-      <File FileName="Assets/Scripts/MonsterHealthBarScript.cs" Line="4" Column="21" />
+      <File FileName="Assets\Standard Assets\2D\Scripts\PlatformerCharacter2D.cs" Line="1" Column="1" />
+      <File FileName="Assets\Standard Assets\2D\Scripts\Platformer2DUserControl.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\AboveView2DUserControl.cs" Line="88" Column="19" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

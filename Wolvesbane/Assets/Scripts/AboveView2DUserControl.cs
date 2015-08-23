@@ -37,21 +37,22 @@ using UnityStandardAssets.CrossPlatformInput;
 			float move_y = CrossPlatformInputManager.GetAxis("Vertical");
 
 			// Interpreting movement for animation controller
-			if (move_x > 0) {
-				anim.SetFloat("MoveX", 1f);
-			} else if (move_x < 0) {
-				anim.SetFloat("MoveX", -1f);
-			} else {
-				anim.SetFloat("MoveX", 0);
-			}
-
-			if (move_y > 0) {
-				anim.SetFloat("MoveY", 1f);
-			} else if (move_y < 0) {
-				anim.SetFloat("MoveY", -1f);
-			} else {
-				anim.SetFloat("MoveY", 0);
-			}
+			if (move_x != 0 || move_y != 0) {
+				if (move_x > 0) {
+					anim.SetFloat("MoveX", 1f);
+				} else if (move_x < 0) {
+					anim.SetFloat("MoveX", -1f);
+				} else {
+					anim.SetFloat("MoveX", 0);
+				}
+				
+				if (move_y > 0) {
+					anim.SetFloat("MoveY", 1f);
+				} else if (move_y < 0) {
+					anim.SetFloat("MoveY", -1f);
+				} else {
+					anim.SetFloat("MoveY", 0);
+			}}
 
             if (!m_Jump)
             {
@@ -89,21 +90,22 @@ using UnityStandardAssets.CrossPlatformInput;
 			}
 
 			// Interpreting movement for animation controller
-			if (move_x > 0) {
-				anim.SetFloat("LastMoveX", 1f);
-			} else if (move_x < 0) {
-				anim.SetFloat("LastMoveX", -1f);
-			} else {
-				anim.SetFloat("LastMoveX", 0);
-			}
-			
-			if (move_y > 0) {
-				anim.SetFloat("LastMoveY", 1f);
-			} else if (move_y < 0) {
-				anim.SetFloat("LastMoveY", -1f);
-			} else {
+			if (move_x != 0 && move_y != 0) {
+				if (move_x > 0) {
+					anim.SetFloat("LastMoveX", 1f);
+				} else if (move_x < 0) {
+					anim.SetFloat("LastMoveX", -1f);
+				} else {
+					anim.SetFloat("LastMoveX", 0);
+				}
+				
+				if (move_y > 0) {
+					anim.SetFloat("LastMoveY", 1f);
+				} else if (move_y < 0) {
+					anim.SetFloat("LastMoveY", -1f);
+				} else {
 				anim.SetFloat("LastMoveY", 0);
-			}
+			}}
 
             // Pass all parameters to the character control script.
             m_Character.Move(move_x*moveSpeed,move_y*moveSpeed);
