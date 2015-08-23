@@ -18,7 +18,7 @@ public class CreatureBase : MonoBehaviour {
 	public int hitCooldown;
 	public int stunTimer;
 	[SerializeField] public GameObject target;
-	public GameObject toDrop;
+	public GameObject[] toDrop;
 	public Power currentPower;
 	public int regenTimer;
 	public int regenCooldown;
@@ -34,8 +34,10 @@ public class CreatureBase : MonoBehaviour {
 		if (health <= 0) {
 			health = 0;
 			isDead = true;
-			if (toDrop != null) {
-				GameObject.Instantiate(toDrop, gameObject.transform.position, Quaternion.identity);
+			if (toDrop.Length > 0) {
+				System.Random random = new System.Random();
+				int rand_num = random.Next(0, toDrop.Length+1);
+				GameObject.Instantiate(toDrop[rand_num], gameObject.transform.position, Quaternion.identity);
 			}
 			return true;
 		}

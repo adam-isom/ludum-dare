@@ -20,6 +20,7 @@ public class AboveView2DUserControl : CreatureBase
 	public int suckingBloodCooldown;
 	public int stunTime;
 	public float moveSpeed;
+	public int coinsOwned;
 
     private void Awake()
     {
