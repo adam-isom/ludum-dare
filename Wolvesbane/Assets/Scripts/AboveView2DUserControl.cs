@@ -15,12 +15,17 @@ using UnityStandardAssets.CrossPlatformInput;
 		private int attackingTimer;
 		public bool crossbowEquipped;
 		public GameObject boltCase;
+		private bool suckingBlood;
+		private int suckingBloodTimer;
+		public int suckingBloodCooldown;
+		public int stunTime;
 
         private void Awake()
         {
 			anim = GetComponent<Animator> ();
 			m_Character = GetComponent<UnityStandardAssets._2D.PlatformerCharacter2D>();
 			attackingTimer = 0;
+			suckingBlood = false;
         }
 
 
@@ -53,7 +58,18 @@ using UnityStandardAssets.CrossPlatformInput;
                 m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
             }
 			if (hitTimer > 0) {
-				hitTimer--;
+				--hitTimer;
+			}
+			if (suckingBloodTimer > 0) {
+				--suckingBloodTimer;
+			}
+			if (regenTimer > 0) {
+				--regenTimer;
+			} else {
+				regenTimer = regenCooldown;
+				if (currentPower == Power.WEREWOLF && health < maxHealth) {
+					++health;
+				}
 			}
         }
 
@@ -109,10 +125,17 @@ using UnityStandardAssets.CrossPlatformInput;
 			} else {
 				attacking = false;
 			}
+
+			// Blood sucking key enables trigger collider
+			if (CrossPlatformInputManager.GetButton ("Fire2") && currentPower == Power.NONE) {
+				this.suckingBlood = true;
+			} else {
+				this.suckingBlood = false;
+			}
         }
 
 		private void fireCrossbow() {
-			if (attackingTimer == 0) {
+			if (hitTimer == 0) {
 				if (this.GetComponent<Animator> () != null) {
 					this.GetComponent<Animator> ().SetTrigger ("fireCrossbow");
 				}
@@ -135,9 +158,7 @@ using UnityStandardAssets.CrossPlatformInput;
 					boltRigidBody.AddForce (600 * mousedir);
 					//Debug.Log ("firing crossbow");
 
-					attackingTimer = 15;
-				} else {
-					Debug.Log ("boltCase IS null");
+					hitTimer = hitCooldown;
 				}
 			}
 		}
@@ -166,6 +187,25 @@ using UnityStandardAssets.CrossPlatformInput;
 							Destroy(collision.gameObject);
 							target = null;
 						}
+					}
+				}
+			}
+		}
+
+		public void OnTriggerStay2D(Collider2D collider) {
+			if (suckingBlood && suckingBloodTimer == 0) {
+				MonsterAI monster = collider.gameObject.GetComponent<MonsterAI>();
+				if (monster != null && monster.team != team) {
+					if (collider.gameObject.GetComponent<Animator>() != null) {
+						collider.gameObject.GetComponent<Animator>().SetTrigger("hurt");
+					}
+					monster.stun(stunTime);
+					currentPower = monster.currentPower;
+					suckingBloodTimer = suckingBloodCooldown;
+					Debug.Log("Damaging other entity: " + damage + " w/ AD: " + armorDivisor);
+					if (monster.TakeDamage(damage, armorDivisor)) {
+						Destroy(collider.gameObject);
+						target = null;
 					}
 				}
 			}

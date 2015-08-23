@@ -3,6 +3,10 @@ using System.Collections;
 
 public class CreatureBase : MonoBehaviour {
 
+	public enum Power {
+		NONE, WEREWOLF, VAMPIRE
+	};
+
 	public float health;
 	public float maxHealth;
 	public int armor;
@@ -12,8 +16,12 @@ public class CreatureBase : MonoBehaviour {
 	public string team;
 	public int hitTimer;
 	public int hitCooldown;
+	public int stunTimer;
 	[SerializeField] public GameObject target;
 	public GameObject toDrop;
+	public Power currentPower;
+	public int regenTimer;
+	public int regenCooldown;
 
 	// Update is called once per frame
 	void Update () {
@@ -23,7 +31,7 @@ public class CreatureBase : MonoBehaviour {
 	//returns whether it died
 	public virtual bool TakeDamage(int amount, float armorDivisor) {
 		health -= amount / Mathf.Max((armor/armorDivisor), 1);
-		if (health < 0) {
+		if (health <= 0) {
 			health = 0;
 			isDead = true;
 			if (toDrop != null) {
@@ -32,6 +40,11 @@ public class CreatureBase : MonoBehaviour {
 			return true;
 		}
 		return false;
+	}
+
+	public void stun(int stunTime) {
+		hitTimer = stunTime;
+		stunTimer = stunTime;
 	}
 
 	public virtual void OnCollisionStay2D(Collision2D collision) {
