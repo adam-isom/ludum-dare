@@ -11,7 +11,10 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+		if (Input.GetKeyDown ("space") && Application.loadedLevel != 1) { // Application.loadedLevel is the current scene number
+			print ("space key was pressed");
+			Application.LoadLevel("main");
+		}
 	}
 
 	//This is called each time a scene is loaded.
