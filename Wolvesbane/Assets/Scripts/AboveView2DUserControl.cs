@@ -85,20 +85,11 @@ public class AboveView2DUserControl : CreatureBase
 				++health;
 			}
 		}
-    }
 
-
-    private void FixedUpdate()
-    {
-        // Read the inputs.
-        float move_x = CrossPlatformInputManager.GetAxis("Horizontal");
-		float move_y = CrossPlatformInputManager.GetAxis("Vertical");
+		// Pass all parameters to the character control script.
+		m_Character.Move(move_x*moveSpeed,move_y*moveSpeed);
+		m_Jump = false;
 		
-
-        // Pass all parameters to the character control script.
-        m_Character.Move(move_x*moveSpeed,move_y*moveSpeed);
-        m_Jump = false;
-
 		Vector3 cameraPosition = Camera.main.transform.position;
 		cameraPosition.x = this.transform.position.x;
 		cameraPosition.y = this.transform.position.y;
@@ -116,13 +107,24 @@ public class AboveView2DUserControl : CreatureBase
 		} else {
 			attacking = false;
 		}
-
+		
 		// Blood sucking key enables trigger collider
 		if (CrossPlatformInputManager.GetButton ("Fire2") && currentPower == Power.NONE) {
 			this.suckingBlood = true;
 		} else {
 			this.suckingBlood = false;
 		}
+    }
+
+
+    private void FixedUpdate()
+    {
+        // Read the inputs.
+        float move_x = CrossPlatformInputManager.GetAxis("Horizontal");
+		float move_y = CrossPlatformInputManager.GetAxis("Vertical");
+		
+
+        
     }
 
 	private void fireCrossbow() {

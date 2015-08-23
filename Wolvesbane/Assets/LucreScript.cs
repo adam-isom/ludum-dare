@@ -16,7 +16,7 @@ public class LucreScript : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D collision) {
 		AboveView2DUserControl playerScript = collision.gameObject.GetComponent<AboveView2DUserControl>();
-		if (playerScript != null) {
+		if (playerScript != null && !collision.isTrigger) {
 			playerScript.coinsOwned += amount;
 			Debug.Log("Picked up some coins! We now have " + playerScript.coinsOwned);
 			Destroy(this.gameObject);
