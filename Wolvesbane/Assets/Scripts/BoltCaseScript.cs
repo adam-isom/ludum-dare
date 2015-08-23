@@ -28,6 +28,10 @@ public class BoltCaseScript : MonoBehaviour {
 		if (ammo > 0) {
 			--ammo;
 			bolt = (GameObject) GameObject.Instantiate(boltType, player.transform.position, Quaternion.identity);
+			BoltScript bolt_script = bolt.GetComponent<BoltScript>();
+			bolt_script.damage = 2;
+			bolt_script.armorDivisor = 5;
+			bolt_script.team = "Player";
 		}
 
 		return bolt;

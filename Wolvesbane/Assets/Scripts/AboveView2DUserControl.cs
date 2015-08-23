@@ -2,14 +2,14 @@ using System;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
-namespace UnityStandardAssets._2D
-{
-    [RequireComponent(typeof (PlatformerCharacter2D))]
+//namespace UnityStandardAssets._2D
+//{
+	[RequireComponent(typeof (UnityStandardAssets._2D.PlatformerCharacter2D))]
     public class AboveView2DUserControl : CreatureBase
     {
 		private Animator anim;
 
-        private PlatformerCharacter2D m_Character;
+		private UnityStandardAssets._2D.PlatformerCharacter2D m_Character;
         private bool m_Jump;
 		private bool attacking;
 		private int attackingTimer;
@@ -19,7 +19,7 @@ namespace UnityStandardAssets._2D
         private void Awake()
         {
 			anim = GetComponent<Animator> ();
-			m_Character = GetComponent<PlatformerCharacter2D>();
+			m_Character = GetComponent<UnityStandardAssets._2D.PlatformerCharacter2D>();
 			attackingTimer = 0;
         }
 
@@ -132,8 +132,8 @@ namespace UnityStandardAssets._2D
 					offset.y = (float)0.2 * mousedir.y;
 					bolt.transform.Translate (offset);
 					Rigidbody2D boltRigidBody = bolt.GetComponent<Rigidbody2D> ();
-					boltRigidBody.AddForce (400 * mousedir);
-					Debug.Log ("firing crossbow");
+					boltRigidBody.AddForce (600 * mousedir);
+					//Debug.Log ("firing crossbow");
 
 					attackingTimer = 15;
 				} else {
@@ -171,4 +171,4 @@ namespace UnityStandardAssets._2D
 			}
 		}
     }
-}
+//}

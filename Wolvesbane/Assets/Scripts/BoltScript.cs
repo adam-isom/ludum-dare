@@ -2,6 +2,9 @@
 using System.Collections;
 
 public class BoltScript : MonoBehaviour {
+	public string team;
+	public float armorDivisor;
+	public int damage;
 
 	// Use this for initialization
 	void Start () {
@@ -11,10 +14,31 @@ public class BoltScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Rigidbody2D rigidbody = this.GetComponent<Rigidbody2D> ();
-		if (rigidbody.velocity.magnitude <= 2) {
+		if (rigidbody.velocity.magnitude <= 8) {
 			Destroy(this.gameObject);
 		}
+		//transform.rotation = Quaternion.LookRotation(rigidbody.velocity.normalized);
+		//Debug.Log("Rotation: " + transform.rotation);
+		float angle = Mathf.Atan2(rigidbody.velocity.y, rigidbody.velocity.x) * Mathf.Rad2Deg;
+		transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 	}
 
-	// collide
+	void OnCollisionEnter2D(Collision2D collision) {
+		CreatureBase otherScript = (CreatureBase)collision.gameObject.GetComponent("CreatureBase");
+		if (otherScript != null) {
+			if (otherScript.team != team) {
+				Debug.Log("Team: " + team);
+				if (collision.gameObject.GetComponent<Animator>() != null) {
+					collision.gameObject.GetComponent<Animator>().SetTrigger("hurt");
+				}
+				//this.gameObject.GetComponent<Animator>().SetTrigger("attack");
+				//Debug.Log("Damaging other entity: " + damage + " w/ AD: " + armorDivisor);
+				if (otherScript.TakeDamage(damage, armorDivisor)) {
+					Destroy(collision.gameObject);
+					Debug.Log("Slew " + collision.gameObject.name);
+					Destroy(this.gameObject);
+				}
+			}
+		}
+	}
 }
