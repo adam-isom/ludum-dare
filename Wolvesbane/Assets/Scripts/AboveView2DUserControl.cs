@@ -11,6 +11,8 @@ namespace UnityStandardAssets._2D
         private bool m_Jump;
 		private bool attacking;
 		private int attackingTimer;
+		public bool crossbowEquipped;
+		public GameObject boltCase;
 
         private void Awake()
         {
@@ -46,12 +48,13 @@ namespace UnityStandardAssets._2D
 			cameraPosition.y = this.transform.position.y;
 			Camera.main.transform.position = cameraPosition;
 			if (CrossPlatformInputManager.GetButtonDown("Fire1")) {
-				if (this.GetComponent<Animator>() != null) {
-					this.GetComponent<Animator>().SetTrigger("attack");
+				if (crossbowEquipped) {
+					Debug.Log ("Firing crossbow");
+					fireCrossbow();
+				} else {
+					Debug.Log ("Swinging sword");
+					swingSword();
 				}
-				attacking = true;
-				attackingTimer = 10;
-				Debug.Log("attacking");
 			} else if (attackingTimer > 0) {
 				attackingTimer--;
 			} else {
@@ -59,6 +62,46 @@ namespace UnityStandardAssets._2D
 			}
         }
 
+		private void fireCrossbow() {
+			if (attackingTimer == 0) {
+				if (this.GetComponent<Animator> () != null) {
+					this.GetComponent<Animator> ().SetTrigger ("fireCrossbow");
+				}
+				attacking = false;
+				// Create projectile
+				if (boltCase != null) {
+					BoltCaseScript boltCaseScript = boltCase.GetComponent<BoltCaseScript> ();
+					GameObject bolt = boltCaseScript.getBolt ();
+
+					// Make projectile fire at mouse position
+					Vector3 mousepos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+					Vector2 mousedir = (new Vector2 (mousepos.x, mousepos.y) - new Vector2 (transform.position.x, transform.position.y)).normalized;
+
+					// Make sure projectile starts outside of player's collider
+					Vector2 offset = new Vector2 ();
+					offset.x = (float)0.2 * mousedir.x;
+					offset.y = (float)0.2 * mousedir.y;
+					bolt.transform.Translate (offset);
+					Rigidbody2D boltRigidBody = bolt.GetComponent<Rigidbody2D> ();
+					boltRigidBody.AddForce (400 * mousedir);
+					Debug.Log ("firing crossbow");
+
+					attackingTimer = 15;
+				} else {
+					Debug.Log ("boltCase IS null");
+				}
+			}
+		}
+
+		private void swingSword() {
+			if (this.GetComponent<Animator>() != null) {
+				this.GetComponent<Animator>().SetTrigger("attack");
+			}
+			attacking = true;
+			attackingTimer = 10;
+			Debug.Log("attacking");
+		}
+			
 		public override void OnCollisionStay2D(Collision2D collision) {
 			if (attacking) {
 				CreatureBase otherScript = (CreatureBase)collision.gameObject.GetComponent("CreatureBase");
