@@ -19,6 +19,7 @@ using UnityStandardAssets.CrossPlatformInput;
 		private int suckingBloodTimer;
 		public int suckingBloodCooldown;
 		public int stunTime;
+		public float moveSpeed;
 
         private void Awake()
         {
@@ -105,7 +106,7 @@ using UnityStandardAssets.CrossPlatformInput;
 			}
 
             // Pass all parameters to the character control script.
-            m_Character.Move(move_x,move_y);
+            m_Character.Move(move_x*moveSpeed,move_y*moveSpeed);
             m_Jump = false;
 
 			Vector3 cameraPosition = Camera.main.transform.position;

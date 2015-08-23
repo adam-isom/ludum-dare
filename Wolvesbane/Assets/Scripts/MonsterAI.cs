@@ -3,7 +3,7 @@ using System.Collections;
 
 public class MonsterAI : CreatureBase
 {
-	public int moveSpeed;
+	public float moveSpeed;
 	public int rotationSpeed;
 	
 	void Start() 
@@ -32,11 +32,11 @@ public class MonsterAI : CreatureBase
 					                                       rotationSpeed * Time.deltaTime);*/
 				
 				Vector3 old_scale = transform.localScale;
-				if (dir.x > 0 && old_scale.x < 0) {
-					transform.localScale = new Vector3(old_scale.x * -1, old_scale.y, old_scale.z);
-				} else if (dir.x < 0 && old_scale.x > 0) {
-					transform.localScale = new Vector3(old_scale.x * -1, old_scale.y, old_scale.z);
-				}
+//				if (dir.x > 0 && old_scale.x < 0) {
+//					transform.localScale = new Vector3(old_scale.x * -1, old_scale.y, old_scale.z);
+//				} else if (dir.x < 0 && old_scale.x > 0) {
+//					transform.localScale = new Vector3(old_scale.x * -1, old_scale.y, old_scale.z);
+//				}
 				//Move Towards Target
 				transform.position += (target.transform.position - transform.position).normalized 
 					* moveSpeed * Time.deltaTime;
@@ -59,9 +59,9 @@ public class MonsterAI : CreatureBase
 				++health;
 			}
 		}
-		Vector3 pos = Camera.main.WorldToViewportPoint(this.transform.position);
-		pos.x = Mathf.Clamp(pos.x,0f,1f);
-		pos.y = Mathf.Clamp(pos.y,0f,1f);
-		transform.position = Camera.main.ViewportToWorldPoint(pos);
+		//Vector3 pos = Camera.main.WorldToViewportPoint(this.transform.position);
+		//pos.x = Mathf.Clamp(pos.x,0f,1f);
+		//pos.y = Mathf.Clamp(pos.y,0f,1f);
+		//transform.position = Camera.main.ViewportToWorldPoint(pos);
 	}
 }
