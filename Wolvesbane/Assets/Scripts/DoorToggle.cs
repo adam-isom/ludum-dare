@@ -3,7 +3,7 @@ using System.Collections;
 
 public class DoorToggle : CreatureBase {
 
-	public GameObject[] adjacentLights;
+	public GameObject[] adjacentObjects;
 
 	// Use this for initialization
 	void Start () {
@@ -18,9 +18,9 @@ public class DoorToggle : CreatureBase {
 	public override bool TakeDamage(int amount, float armorDivisor) {
 		this.gameObject.GetComponent<BoxCollider2D>().enabled = !this.gameObject.GetComponent<BoxCollider2D>().enabled;
 		this.gameObject.GetComponent<SpriteRenderer>().enabled = !this.gameObject.GetComponent<SpriteRenderer>().enabled;
-		if (adjacentLights.Length > 0) {
-			foreach (GameObject light in adjacentLights) {
-				light.SetActive(true);
+		if (adjacentObjects.Length > 0) {
+			foreach (GameObject to_activate in adjacentObjects) {
+				to_activate.SetActive(true);
 			}
 		}
 		return false;

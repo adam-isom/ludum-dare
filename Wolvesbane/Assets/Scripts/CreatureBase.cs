@@ -13,6 +13,7 @@ public class CreatureBase : MonoBehaviour {
 	public int hitTimer;
 	public int hitCooldown;
 	[SerializeField] public GameObject target;
+	public GameObject toDrop;
 
 	// Update is called once per frame
 	void Update () {
@@ -25,6 +26,9 @@ public class CreatureBase : MonoBehaviour {
 		if (health < 0) {
 			health = 0;
 			isDead = true;
+			if (toDrop != null) {
+				GameObject.Instantiate(toDrop, gameObject.transform.position, Quaternion.identity);
+			}
 			return true;
 		}
 		return false;
@@ -45,6 +49,7 @@ public class CreatureBase : MonoBehaviour {
 				//Debug.Log("Damaging other entity: " + damage + " w/ AD: " + armorDivisor);
 				if (otherScript.TakeDamage(damage, armorDivisor)) {
 					Destroy(collision.gameObject);
+					Debug.Log("Slew " + collision.gameObject.name);
 					target = null;
 				}
 			}
