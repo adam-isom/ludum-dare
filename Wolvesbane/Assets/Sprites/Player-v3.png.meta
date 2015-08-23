@@ -1,21 +1,21 @@
 fileFormatVersion: 2
-guid: b3a663bdb150f2b49bf40ffc0a9ed560
-timeCreated: 1440281293
+guid: a124a0cd655a53742aece4a32fce59a2
+timeCreated: 1440354843
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: PlayerSprite-4Direction_0
-    21300002: PlayerSprite-4Direction_1
-    21300004: PlayerSprite-4Direction_2
-    21300006: PlayerSprite-4Direction_3
-    21300008: PlayerSprite-4Direction_4
-    21300010: PlayerSprite-4Direction_5
-    21300012: PlayerSprite-4Direction_6
-    21300014: PlayerSprite-4Direction_7
-    21300016: PlayerSprite-4Direction_8
-    21300018: PlayerSprite-4Direction_9
-    21300020: PlayerSprite-4Direction_10
-    21300022: PlayerSprite-4Direction_11
+    21300000: Player-v3_0
+    21300002: Player-v3_1
+    21300004: Player-v3_2
+    21300006: Player-v3_3
+    21300008: Player-v3_4
+    21300010: Player-v3_5
+    21300012: Player-v3_6
+    21300014: Player-v3_7
+    21300016: Player-v3_8
+    21300018: Player-v3_9
+    21300020: Player-v3_10
+    21300022: Player-v3_11
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -61,7 +61,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: PlayerSprite-4Direction_0
+    - name: Player-v3_0
       rect:
         serializedVersion: 2
         x: 0
@@ -71,7 +71,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PlayerSprite-4Direction_1
+    - name: Player-v3_1
       rect:
         serializedVersion: 2
         x: 32
@@ -81,7 +81,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PlayerSprite-4Direction_2
+    - name: Player-v3_2
       rect:
         serializedVersion: 2
         x: 64
@@ -91,7 +91,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PlayerSprite-4Direction_3
+    - name: Player-v3_3
       rect:
         serializedVersion: 2
         x: 0
@@ -101,7 +101,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PlayerSprite-4Direction_4
+    - name: Player-v3_4
       rect:
         serializedVersion: 2
         x: 32
@@ -111,7 +111,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PlayerSprite-4Direction_5
+    - name: Player-v3_5
       rect:
         serializedVersion: 2
         x: 64
@@ -121,7 +121,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PlayerSprite-4Direction_6
+    - name: Player-v3_6
       rect:
         serializedVersion: 2
         x: 0
@@ -131,7 +131,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PlayerSprite-4Direction_7
+    - name: Player-v3_7
       rect:
         serializedVersion: 2
         x: 32
@@ -141,7 +141,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PlayerSprite-4Direction_8
+    - name: Player-v3_8
       rect:
         serializedVersion: 2
         x: 64
@@ -151,7 +151,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PlayerSprite-4Direction_9
+    - name: Player-v3_9
       rect:
         serializedVersion: 2
         x: 0
@@ -161,7 +161,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PlayerSprite-4Direction_10
+    - name: Player-v3_10
       rect:
         serializedVersion: 2
         x: 32
@@ -171,7 +171,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PlayerSprite-4Direction_11
+    - name: Player-v3_11
       rect:
         serializedVersion: 2
         x: 64
