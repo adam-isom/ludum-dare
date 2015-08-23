@@ -1,21 +1,21 @@
 fileFormatVersion: 2
-guid: a124a0cd655a53742aece4a32fce59a2
-timeCreated: 1440354843
+guid: d362914a0c8007a4481fecd90b132215
+timeCreated: 1440362076
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Player-v3_0
-    21300002: Player-v3_1
-    21300004: Player-v3_2
-    21300006: Player-v3_3
-    21300008: Player-v3_4
-    21300010: Player-v3_5
-    21300012: Player-v3_6
-    21300014: Player-v3_7
-    21300016: Player-v3_8
-    21300018: Player-v3_9
-    21300020: Player-v3_10
-    21300022: Player-v3_11
+    21300000: Gargoyle-v1_0
+    21300002: Gargoyle-v1_1
+    21300004: Gargoyle-v1_2
+    21300006: Gargoyle-v1_3
+    21300008: Gargoyle-v1_4
+    21300010: Gargoyle-v1_5
+    21300012: Gargoyle-v1_6
+    21300014: Gargoyle-v1_7
+    21300016: Gargoyle-v1_8
+    21300018: Gargoyle-v1_9
+    21300020: Gargoyle-v1_10
+    21300022: Gargoyle-v1_11
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -61,7 +61,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: Player-v3_0
+    - name: Gargoyle-v1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -71,7 +71,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Player-v3_1
+    - name: Gargoyle-v1_1
       rect:
         serializedVersion: 2
         x: 32
@@ -81,7 +81,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Player-v3_2
+    - name: Gargoyle-v1_2
       rect:
         serializedVersion: 2
         x: 64
@@ -91,7 +91,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Player-v3_3
+    - name: Gargoyle-v1_3
       rect:
         serializedVersion: 2
         x: 0
@@ -101,7 +101,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Player-v3_4
+    - name: Gargoyle-v1_4
       rect:
         serializedVersion: 2
         x: 32
@@ -111,7 +111,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Player-v3_5
+    - name: Gargoyle-v1_5
       rect:
         serializedVersion: 2
         x: 64
@@ -121,7 +121,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Player-v3_6
+    - name: Gargoyle-v1_6
       rect:
         serializedVersion: 2
         x: 0
@@ -131,7 +131,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Player-v3_7
+    - name: Gargoyle-v1_7
       rect:
         serializedVersion: 2
         x: 32
@@ -141,7 +141,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Player-v3_8
+    - name: Gargoyle-v1_8
       rect:
         serializedVersion: 2
         x: 64
@@ -151,7 +151,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Player-v3_9
+    - name: Gargoyle-v1_9
       rect:
         serializedVersion: 2
         x: 0
@@ -161,7 +161,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Player-v3_10
+    - name: Gargoyle-v1_10
       rect:
         serializedVersion: 2
         x: 32
@@ -171,7 +171,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Player-v3_11
+    - name: Gargoyle-v1_11
       rect:
         serializedVersion: 2
         x: 64
