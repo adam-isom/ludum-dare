@@ -15,6 +15,6 @@ public class AdvanceLevel : MonoBehaviour {
 
 	private void OnTriggerEnter2D (Collider2D other) {
 		print("Exit point");
-		Application.LoadLevel("main");
+		Application.LoadLevel(Application.loadedLevel+1); // advance one level
 	}
 }
