@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour {
 		level = Application.loadedLevel + 1;
 		print ("LEVEL " + Application.loadedLevel);
 
-		DontDestroyOnLoad(GameObject.Find("UI Canvas"));
+		DontDestroyOnLoad(GameObject.Find("UICanvas"));
 		DontDestroyOnLoad(GameObject.Find("SoundManager"));
 
 		InitGame();
