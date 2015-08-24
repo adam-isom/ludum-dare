@@ -84,9 +84,13 @@ public class MonsterAI : CreatureBase
 
 		GetComponent<Rigidbody2D>().velocity = Vector3.zero;
 		if (hitTimer > 0) {
+			if (hitTimer == hitCooldown) {
+				anim.SetTrigger ("Attacking");
+			}
 			--hitTimer;
 		}
 		if (stunTimer > 0) {
+			anim.SetTrigger ("Damaged");
 			--stunTimer;
 		}
 		if (regenTimer > 0) {
@@ -97,6 +101,10 @@ public class MonsterAI : CreatureBase
 				++health;
 			}
 		}
+		if (health <= 0) {
+			anim.SetBool("Dead", true);
+		}
+
 		//Vector3 pos = Camera.main.WorldToViewportPoint(this.transform.position);
 		//pos.x = Mathf.Clamp(pos.x,0f,1f);
 		//pos.y = Mathf.Clamp(pos.y,0f,1f);
