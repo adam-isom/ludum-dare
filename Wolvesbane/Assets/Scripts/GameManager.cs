@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour {
 	//Awake is always called before any Start functions
 	void Awake() {
 		level = Application.loadedLevel + 1;
-		print ("LEVEL " + Application.loadedLevel);
+		print ("LEVEL " + level);
 
 		DontDestroyOnLoad(GameObject.Find("UICanvas"));
 		DontDestroyOnLoad(GameObject.Find("MusicManager"));
@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour {
 		//While doingSetup is true the player can't move, prevent player from moving while title card is up.
 		doingSetup = true;
 		print ("DOING SETUP");
-		
+
 		levelImage = GameObject.Find ("LevelImage").GetComponent<Image>();
 		levelText = GameObject.Find ("LevelText").GetComponent<Text> ();
 
@@ -38,11 +38,12 @@ public class GameManager : MonoBehaviour {
 				+ "\n\n Press space to continue";
 		}
 
-		if (level == 2) {
+		else if (level == 2) {
 			
 			levelText.text = "Level " + level + "\n\n"
 				+ "After last night's adventures, you feel some sort of transformation happening to you…"
-					+ "\n\n Press space to continue";
+					+ "\n\n…You feel your humanity slipping away, but in its place new abilities have emerged. You have become a vampire!"
+				+ "\n\n Press space to continue";
 		}
 		else levelText.text = "Level " + level + "\n Press space to continue";
 		
