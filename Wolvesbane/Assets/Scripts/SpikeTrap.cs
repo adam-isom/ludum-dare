@@ -15,15 +15,13 @@ public class SpikeTrap : MonoBehaviour {
 	
 	}
 
-	public bool TakeDamage(int amount, float armorDivisor) {
-		this.gameObject.GetComponent<BoxCollider2D>().enabled = !this.gameObject.GetComponent<BoxCollider2D>().enabled;
-		this.gameObject.GetComponent<SpriteRenderer>().enabled = !this.gameObject.GetComponent<SpriteRenderer>().enabled;
-		anim.SetTrigger ("TrapTrigger");
-		return false;
+	void OnTriggerEnter2D(Collider2D collision) {
+		anim.SetBool("TrapTrigger", true);
+		return;
 	}
-	
-	public void OnCollisionStay2D(Collision2D collision) {
-		anim.SetTrigger ("TrapTrigger");
+
+	void OnTriggerExit2D(Collider2D collision) {
+		anim.SetBool("TrapTrigger", false);
 		return;
 	}
 }
