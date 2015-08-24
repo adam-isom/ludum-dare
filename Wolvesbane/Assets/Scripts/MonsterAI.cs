@@ -68,7 +68,7 @@ public class MonsterAI : CreatureBase
 					                                       Quaternion.FromToRotation (Vector3.right, dir), 
 					                                       rotationSpeed * Time.deltaTime);*/
 				
-				Vector3 old_scale = transform.localScale;
+				//Vector3 old_scale = transform.localScale;
 //				if (dir.x > 0 && old_scale.x < 0) {
 //					transform.localScale = new Vector3(old_scale.x * -1, old_scale.y, old_scale.z);
 //				} else if (dir.x < 0 && old_scale.x > 0) {

@@ -21,6 +21,7 @@ public class AboveView2DUserControl : CreatureBase
 	public int stunTime;
 	public float moveSpeed;
 	public int coinsOwned;
+	public int numKills;
 
     private void Awake()
     {
@@ -114,17 +115,8 @@ public class AboveView2DUserControl : CreatureBase
 		} else {
 			this.suckingBlood = false;
 		}
-    }
-
-
-    private void FixedUpdate()
-    {
-        // Read the inputs.
-        float move_x = CrossPlatformInputManager.GetAxis("Horizontal");
-		float move_y = CrossPlatformInputManager.GetAxis("Vertical");
-		
-
-        
+		GameObject.FindGameObjectWithTag("LogManager").GetComponent<LogManagerScript>().playerCoins = coinsOwned;
+		GameObject.FindGameObjectWithTag("LogManager").GetComponent<LogManagerScript>().playerKills = numKills;
     }
 
 	private void fireCrossbow() {
@@ -184,6 +176,7 @@ public class AboveView2DUserControl : CreatureBase
 						Destroy(collision.gameObject);
 						target = null;
 						GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundScript>().playSound("crit");
+						GameObject.FindGameObjectWithTag("LogManager").GetComponent<LogManagerScript>().addMessage(this.name + " slew " + collision.gameObject.name);
 					} else {
 						GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundScript>().playSound("hit");
 					}
@@ -205,6 +198,7 @@ public class AboveView2DUserControl : CreatureBase
 				Debug.Log("Damaging other entity: " + damage + " w/ AD: " + armorDivisor);
 				GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundScript>().playSound("bloodsuck");
 				if (monster.TakeDamage(damage, armorDivisor)) {
+					GameObject.FindGameObjectWithTag("LogManager").GetComponent<LogManagerScript>().addMessage(this.name + " slew " + collider.gameObject.name);
 					Destroy(collider.gameObject);
 					target = null;
 				}

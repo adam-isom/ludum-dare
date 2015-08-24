@@ -65,7 +65,9 @@ public class CreatureBase : MonoBehaviour {
 				//Debug.Log("Damaging other entity: " + damage + " w/ AD: " + armorDivisor);
 				if (otherScript.TakeDamage(damage, armorDivisor)) {
 					Destroy(collided);
-					Debug.Log("Slew " + collided.name);
+					//Debug.Log("Slew " + collided.name);
+					string creature_name = GameObject.FindGameObjectWithTag("NameManager").GetComponent<NameManager>().getName(name);
+					GameObject.FindGameObjectWithTag("LogManager").GetComponent<LogManagerScript>().addMessage(creature_name + " slew " + collided.name);
 					target = null;
 					GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundScript>().playSound("crit");
 				}

@@ -19,6 +19,7 @@ public class LucreScript : MonoBehaviour {
 		if (playerScript != null && !collision.isTrigger) {
 			playerScript.coinsOwned += amount;
 			Debug.Log("Picked up some coins! We now have " + playerScript.coinsOwned);
+			GameObject.FindGameObjectWithTag("LogManager").GetComponent<LogManagerScript>().addMessage("We now have " + playerScript.coinsOwned + " coins");
 			Destroy(this.gameObject);
 		}
 	}

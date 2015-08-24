@@ -19,6 +19,8 @@ public class BoltPickup : MonoBehaviour {
 			if (playerScript.boltCase != null) {
 				playerScript.boltCase.GetComponent<BoltCaseScript>().ammo += numBolts;
 				Debug.Log("Picked up ammo! Now have " + playerScript.boltCase.GetComponent<BoltCaseScript>().ammo);
+				GameObject.FindGameObjectWithTag("LogManager").GetComponent<LogManagerScript>().addMessage(
+					"We now have " + playerScript.boltCase.GetComponent<BoltCaseScript>().ammo + " bolts");
 				Destroy(gameObject);
 			}
 		}
