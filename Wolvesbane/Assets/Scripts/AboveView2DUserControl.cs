@@ -176,7 +176,9 @@ public class AboveView2DUserControl : CreatureBase
 						Destroy(collision.gameObject);
 						target = null;
 						GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundScript>().playSound("crit");
-						GameObject.FindGameObjectWithTag("LogManager").GetComponent<LogManagerScript>().addMessage(this.name + " slew " + collision.gameObject.name);
+						string player_name = GameObject.FindGameObjectWithTag("NameManager").GetComponent<NameManager>().getName("Player");
+						numKills++;
+						GameObject.FindGameObjectWithTag("LogManager").GetComponent<LogManagerScript>().addMessage(player_name + " slew " + collision.gameObject.name);
 					} else {
 						GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundScript>().playSound("hit");
 					}
@@ -198,7 +200,9 @@ public class AboveView2DUserControl : CreatureBase
 				Debug.Log("Damaging other entity: " + damage + " w/ AD: " + armorDivisor);
 				GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundScript>().playSound("bloodsuck");
 				if (monster.TakeDamage(damage, armorDivisor)) {
-					GameObject.FindGameObjectWithTag("LogManager").GetComponent<LogManagerScript>().addMessage(this.name + " slew " + collider.gameObject.name);
+					string player_name = GameObject.FindGameObjectWithTag("NameManager").GetComponent<NameManager>().getName("Player");
+					numKills++;
+					GameObject.FindGameObjectWithTag("LogManager").GetComponent<LogManagerScript>().addMessage(player_name + " slew " + collider.gameObject.name);
 					Destroy(collider.gameObject);
 					target = null;
 				}

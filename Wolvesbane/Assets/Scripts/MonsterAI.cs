@@ -24,6 +24,9 @@ public class MonsterAI : CreatureBase
 	
 	void Update() 
 	{   
+		if (isDead) {
+			return;
+		}
 		if (target != null) {
 			// Read the inputs.
 			Vector3 direction = target.transform.position - transform.position;
@@ -84,13 +87,9 @@ public class MonsterAI : CreatureBase
 
 		GetComponent<Rigidbody2D>().velocity = Vector3.zero;
 		if (hitTimer > 0) {
-			if (hitTimer == hitCooldown) {
-				anim.SetTrigger ("Attacking");
-			}
 			--hitTimer;
 		}
 		if (stunTimer > 0) {
-			anim.SetTrigger ("Damaged");
 			--stunTimer;
 		}
 		if (regenTimer > 0) {
@@ -100,9 +99,6 @@ public class MonsterAI : CreatureBase
 			if (currentPower == Power.WEREWOLF && health < maxHealth) {
 				++health;
 			}
-		}
-		if (health <= 0) {
-			anim.SetBool("Dead", true);
 		}
 
 		//Vector3 pos = Camera.main.WorldToViewportPoint(this.transform.position);

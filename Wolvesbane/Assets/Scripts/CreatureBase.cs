@@ -36,10 +36,15 @@ public class CreatureBase : MonoBehaviour {
 			isDead = true;
 			if (toDrop.Length > 0) {
 				System.Random random = new System.Random();
-				int rand_num = random.Next(0, toDrop.Length+1);
+				int rand_num = random.Next(toDrop.Length);
+				//Debug.Log("rand_num: " + rand_num + " Len:" + toDrop.Length);
 				GameObject.Instantiate(toDrop[rand_num], gameObject.transform.position, Quaternion.identity);
 			}
 			return true;
+		} else {
+			if (GetComponent<Animator>() != null) {
+				GetComponent<Animator>().SetTrigger ("Damaged");
+			}
 		}
 		return false;
 	}
@@ -53,11 +58,11 @@ public class CreatureBase : MonoBehaviour {
 		CreatureBase otherScript = collided.GetComponent<CreatureBase>();
 		if (otherScript != null) {
 			if (otherScript.team != team && hitTimer == 0) {
-				if (collided.GetComponent<Animator>() != null) {
-					collided.GetComponent<Animator>().SetTrigger("hurt");
-				}
+				//if (collided.GetComponent<Animator>() != null) {
+					//collided.GetComponent<Animator>().SetTrigger("hurt");
+				//}
 				if (this.GetComponent<Animator>() != null) {
-					this.GetComponent<Animator>().SetTrigger("attack");
+					this.GetComponent<Animator>().SetTrigger("Attacking");
 				}
 				GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundScript>().playSound("hit");
 				//this.gameObject.GetComponent<Animator>().SetTrigger("attack");
@@ -65,9 +70,10 @@ public class CreatureBase : MonoBehaviour {
 				//Debug.Log("Damaging other entity: " + damage + " w/ AD: " + armorDivisor);
 				if (otherScript.TakeDamage(damage, armorDivisor)) {
 					Destroy(collided);
-					//Debug.Log("Slew " + collided.name);
+					Debug.Log("Slew " + collided.name);
 					string creature_name = GameObject.FindGameObjectWithTag("NameManager").GetComponent<NameManager>().getName(name);
-					GameObject.FindGameObjectWithTag("LogManager").GetComponent<LogManagerScript>().addMessage(creature_name + " slew " + collided.name);
+					string target_name = GameObject.FindGameObjectWithTag("NameManager").GetComponent<NameManager>().getName(collided.name);
+					GameObject.FindGameObjectWithTag("LogManager").GetComponent<LogManagerScript>().addMessage(creature_name + " slew " + target_name);
 					target = null;
 					GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundScript>().playSound("crit");
 				}

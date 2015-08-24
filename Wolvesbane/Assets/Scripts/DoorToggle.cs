@@ -20,7 +20,9 @@ public class DoorToggle : CreatureBase {
 		this.gameObject.GetComponent<SpriteRenderer>().enabled = !this.gameObject.GetComponent<SpriteRenderer>().enabled;
 		if (adjacentObjects.Length > 0) {
 			foreach (GameObject to_activate in adjacentObjects) {
-				to_activate.SetActive(true);
+				if (to_activate != null) {
+					to_activate.SetActive(true);
+				}
 			}
 		}
 		GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundScript>().playSound("knock");

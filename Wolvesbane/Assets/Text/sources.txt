@@ -1,6 +1,0 @@
-anglo-saxon: gleaned from http://www.pase.ac.uk/
-pre-conquest names, including place names
-icelandic: gleaned from http://www.nordicnames.de/
-includes modern names
-occupations: partially from PASE, but mostly from http://www.svincent.com/MagicJar/Economics/MedievalOccupations.html
-old english: A Concise Anglo-Saxon Dictionary

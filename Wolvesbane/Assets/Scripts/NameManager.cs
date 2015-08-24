@@ -28,6 +28,8 @@ public class NameManager : MonoBehaviour {
 		switch (creatureName) {
 		case "Boss Werewolf":
 			return "Mosi wettam";
+		case "Player":
+			return "Amurial";
 		default:
 			return generateRandomName() + " the " + creatureName;
 		}
