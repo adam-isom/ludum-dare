@@ -8,8 +8,9 @@ public class LogManagerScript : MonoBehaviour {
 	public GameObject newText;
 
 	//Storing some shit here
-	public int playerCoins;
-	public int playerKills;
+	public static int playerCoins;
+	public static int playerKills;
+	public static int playerBolts;
 
 	// Use this for initialization
 	void Start () {
@@ -18,6 +19,7 @@ public class LogManagerScript : MonoBehaviour {
 //		oldText.GetComponent<RectTransform>().localScale = Vector3.one;
 //		oldText.GetComponent<RectTransform>().sizeDelta = new Vector2(100,50);
 //		oldText.GetComponent<RectTransform>().anchoredPosition = new Vector2(0,0);
+		//DontDestroyOnLoad(gameObject);
 	}
 	
 	// Update is called once per frame

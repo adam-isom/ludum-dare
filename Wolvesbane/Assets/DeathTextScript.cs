@@ -14,9 +14,9 @@ public class DeathTextScript : MonoBehaviour {
 	void Update () {
 		if (waitingForDeath == null) {
 			GetComponent<Text>().text = "You succumb to your wounds. \nYou amassed " + 
-				GameObject.FindGameObjectWithTag("LogManager").GetComponent<LogManagerScript>().playerCoins +
+				LogManagerScript.playerCoins +
 					" coins before your grim demise.\nCreatures slain: " + 
-					GameObject.FindGameObjectWithTag("LogManager").GetComponent<LogManagerScript>().playerKills;
+					LogManagerScript.playerKills;
 		}
 	}
 }

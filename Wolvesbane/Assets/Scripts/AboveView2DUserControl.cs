@@ -29,6 +29,12 @@ public class AboveView2DUserControl : CreatureBase
 		m_Character = GetComponent<UnityStandardAssets._2D.PlatformerCharacter2D>();
 		attackingTimer = 0;
 		suckingBlood = false;
+		LogManagerScript log_manager = GameObject.FindGameObjectWithTag("LogManager").GetComponent<LogManagerScript>();
+		if (log_manager != null) {
+			numKills = LogManagerScript.playerKills;
+			coinsOwned = LogManagerScript.playerCoins;
+			boltCase.GetComponent<BoltCaseScript>().ammo = LogManagerScript.playerBolts;
+		}
     }
 
 
@@ -115,8 +121,9 @@ public class AboveView2DUserControl : CreatureBase
 		} else {
 			this.suckingBlood = false;
 		}
-		GameObject.FindGameObjectWithTag("LogManager").GetComponent<LogManagerScript>().playerCoins = coinsOwned;
-		GameObject.FindGameObjectWithTag("LogManager").GetComponent<LogManagerScript>().playerKills = numKills;
+		LogManagerScript.playerCoins = coinsOwned;
+		LogManagerScript.playerKills = numKills;
+		LogManagerScript.playerBolts = boltCase.GetComponent<BoltCaseScript>().ammo;
     }
 
 	private void fireCrossbow() {
