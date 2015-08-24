@@ -37,6 +37,13 @@ public class GameManager : MonoBehaviour {
 				+ "Monsters have overrun the world, and the last remaining human government employs you to collect their bounties. You are sure of only one thing: that you could never become one of them…"
 				+ "\n\n Press space to continue";
 		}
+
+		if (level == 2) {
+			
+			levelText.text = "Level " + level + "\n\n"
+				+ "After last night's adventures, you feel some sort of transformation happening to you…"
+					+ "\n\n Press space to continue";
+		}
 		else levelText.text = "Level " + level + "\n Press space to continue";
 		
 		levelText.enabled = true;
