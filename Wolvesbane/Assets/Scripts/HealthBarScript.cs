@@ -21,9 +21,11 @@ public class HealthBarScript : MonoBehaviour {
 	void Update () {
 		// Compute fractional health
 		if (creatureObject != null) {
-			double fractionalHealth = creatureObject.GetComponent<CreatureBase> ().health / creatureObject.GetComponent<CreatureBase> ().maxHealth;
+			//double fractionalHealth = creatureObject.GetComponent<CreatureBase> ().health / creatureObject.GetComponent<CreatureBase> ().maxHealth;
 			Vector2 size = this.GetComponent<RectTransform> ().sizeDelta;
-			size.x = (int)(this.maxWidth * fractionalHealth);
+			int heart_width = 34;
+			size.x = (int)Mathf.Min(this.maxWidth, heart_width*(int)creatureObject.GetComponent<CreatureBase> ().health);
+			size.y = 14;
 			this.GetComponent<RectTransform> ().sizeDelta = size;
 		} else {
 			GameObject.Destroy(this.gameObject);
