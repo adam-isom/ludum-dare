@@ -59,6 +59,7 @@ public class CreatureBase : MonoBehaviour {
 				if (this.GetComponent<Animator>() != null) {
 					this.GetComponent<Animator>().SetTrigger("attack");
 				}
+				GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundScript>().playSound("hit");
 				//this.gameObject.GetComponent<Animator>().SetTrigger("attack");
 				hitTimer = hitCooldown;
 				//Debug.Log("Damaging other entity: " + damage + " w/ AD: " + armorDivisor);
@@ -66,6 +67,7 @@ public class CreatureBase : MonoBehaviour {
 					Destroy(collided);
 					Debug.Log("Slew " + collided.name);
 					target = null;
+					GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundScript>().playSound("crit");
 				}
 			}
 		}
