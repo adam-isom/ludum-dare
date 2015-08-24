@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour {
 		
 		levelText.enabled = true;
 		levelImage.enabled = true;
+		Time.timeScale = 0.0F;
 	}
 
 
@@ -44,13 +45,27 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		//Hides black image used between levels
+	}
+		/*//Hides black image used between levels
 		if (Input.GetKeyDown ("space") && doingSetup == true) {
 			print ("space key was pressed");
 
 			levelImage.enabled = false;
 			levelText.enabled = false;			
 			doingSetup = false;
+		}
+	}*/
+
+	void OnGUI() {
+		
+		//Hides black image used between levels
+		if (Input.GetKeyDown ("space") && doingSetup == true) {
+			print ("space key was pressed");
+			
+			levelImage.enabled = false;
+			levelText.enabled = false;			
+			doingSetup = false;
+			Time.timeScale = 1.0F;
 		}
 	}
 
