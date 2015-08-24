@@ -13,9 +13,12 @@ public class GameManager : MonoBehaviour {
 
 	//Awake is always called before any Start functions
 	void Awake() {
+		level = Application.loadedLevel + 1;
 		print ("LEVEL " + Application.loadedLevel);
+
 		DontDestroyOnLoad(GameObject.Find("UI Canvas"));
 		DontDestroyOnLoad(GameObject.Find("SoundManager"));
+
 		InitGame();
 	}
 	
@@ -28,9 +31,13 @@ public class GameManager : MonoBehaviour {
 		levelImage = GameObject.Find ("LevelImage").GetComponent<Image>();
 		levelText = GameObject.Find ("LevelText").GetComponent<Text> ();
 
-		//Set the text of levelText to the current level number.
-		level = Application.loadedLevel;
-		levelText.text = "Level " + level + "\n Press space to continue";
+		if (level == 1) {
+
+			levelText.text = "Level " + level + "\n\n"
+				+ "Monsters have overrun the world, and the last remaining human government employs you to collect their bounties. You are sure of only one thing: that you could never become one of them…"
+				+ "\n\n Press space to continue";
+		}
+		else levelText.text = "Level " + level + "\n Press space to continue";
 		
 		levelText.enabled = true;
 		levelImage.enabled = true;
