@@ -37,6 +37,9 @@ public class BoltScript : MonoBehaviour {
 					Destroy(collision.gameObject);
 					Debug.Log("Slew " + collision.gameObject.name);
 					Destroy(this.gameObject);
+					GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundScript>().playSound("crit");
+				} else {
+					GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundScript>().playSound("hit");
 				}
 			}
 		}

@@ -23,6 +23,7 @@ public class DoorToggle : CreatureBase {
 				to_activate.SetActive(true);
 			}
 		}
+		GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundScript>().playSound("knock");
 		return false;
 	}
 

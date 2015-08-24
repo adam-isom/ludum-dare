@@ -138,20 +138,24 @@ public class AboveView2DUserControl : CreatureBase
 				BoltCaseScript boltCaseScript = boltCase.GetComponent<BoltCaseScript> ();
 				GameObject bolt = boltCaseScript.getBolt ();
 
-				// Make projectile fire at mouse position
-				Vector3 mousepos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
-				Vector2 mousedir = (new Vector2 (mousepos.x, mousepos.y) - new Vector2 (transform.position.x, transform.position.y)).normalized;
+				if (bolt != null) {
+					// Make projectile fire at mouse position
+					Vector3 mousepos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+					Vector2 mousedir = (new Vector2 (mousepos.x, mousepos.y) - new Vector2 (transform.position.x, transform.position.y)).normalized;
 
-				// Make sure projectile starts outside of player's collider
-				Vector2 offset = new Vector2 ();
-				offset.x = (float)0.2 * mousedir.x;
-				offset.y = (float)0.2 * mousedir.y;
-				bolt.transform.Translate (offset);
-				Rigidbody2D boltRigidBody = bolt.GetComponent<Rigidbody2D> ();
-				boltRigidBody.AddForce (600 * mousedir);
-				//Debug.Log ("firing crossbow");
+					GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundScript>().playSound("crossbowfire");
 
-				hitTimer = hitCooldown;
+					// Make sure projectile starts outside of player's collider
+					Vector2 offset = new Vector2 ();
+					offset.x = (float)0.2 * mousedir.x;
+					offset.y = (float)0.2 * mousedir.y;
+					bolt.transform.Translate (offset);
+					Rigidbody2D boltRigidBody = bolt.GetComponent<Rigidbody2D> ();
+					boltRigidBody.AddForce (600 * mousedir);
+					//Debug.Log ("firing crossbow");
+
+					hitTimer = hitCooldown;
+				}
 			}
 		}
 	}
@@ -179,6 +183,9 @@ public class AboveView2DUserControl : CreatureBase
 					if (otherScript.TakeDamage(damage, armorDivisor)) {
 						Destroy(collision.gameObject);
 						target = null;
+						GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundScript>().playSound("crit");
+					} else {
+						GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundScript>().playSound("hit");
 					}
 				}
 			}
@@ -188,7 +195,7 @@ public class AboveView2DUserControl : CreatureBase
 	public void OnTriggerStay2D(Collider2D collider) {
 		if (suckingBlood && suckingBloodTimer == 0) {
 			MonsterAI monster = collider.gameObject.GetComponent<MonsterAI>();
-			if (monster != null && monster.team != team) {
+			if (monster != null && monster.team != team && collider.isTrigger == false) {
 				if (collider.gameObject.GetComponent<Animator>() != null) {
 					collider.gameObject.GetComponent<Animator>().SetTrigger("hurt");
 				}
@@ -196,6 +203,7 @@ public class AboveView2DUserControl : CreatureBase
 				currentPower = monster.currentPower;
 				suckingBloodTimer = suckingBloodCooldown;
 				Debug.Log("Damaging other entity: " + damage + " w/ AD: " + armorDivisor);
+				GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundScript>().playSound("bloodsuck");
 				if (monster.TakeDamage(damage, armorDivisor)) {
 					Destroy(collider.gameObject);
 					target = null;
