@@ -31,19 +31,29 @@ public class GameManager : MonoBehaviour {
 		levelImage = GameObject.Find ("LevelImage").GetComponent<Image>();
 		levelText = GameObject.Find ("LevelText").GetComponent<Text> ();
 
-		if (level == 1) {
+		if (level%2 == 0) {
 
 			levelText.text = "Level " + level + "\n\n"
-				+ "Monsters have overrun the world, and the last remaining human government employs you to collect their bounties. You are sure of only one thing: that you could never become one of them…"
+				+ "Home again. Better pick up some supplies before tonight."
 				+ "\n\n Press space to continue";
 		}
 
-		else if (level == 2) {
+		else if (level == 1) {
 			
 			levelText.text = "Level " + level + "\n\n"
 				+ "After last night's adventures, you feel some sort of transformation happening to you…"
-					+ "\n\n…You feel your humanity slipping away, but in its place new abilities have emerged. You have become a vampire!"
+					+ "\n\n…You feel your humanity slipping away, but in its place new abilities have emerged. You thirst for blood!"
 				+ "\n\n Press space to continue";
+		} else if (level == 3) {
+			
+			levelText.text = "Level " + level + "\n\n"
+				+ "Your contact implied tonight would be a tougher job."
+					+ "\n\n Press space to continue";
+		} else if (level == 5) {
+			
+			levelText.text = "Level " + level + "\n\n"
+				+ "Fear seeps into your bones..."
+					+ "\n\n Press space to continue";
 		}
 		else levelText.text = "Level " + level + "\n Press space to continue";
 		

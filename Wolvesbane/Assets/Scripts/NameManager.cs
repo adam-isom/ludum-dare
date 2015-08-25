@@ -27,7 +27,13 @@ public class NameManager : MonoBehaviour {
 	public string getName(string creatureName) {
 		switch (creatureName) {
 		case "Boss Werewolf":
-			return "Mosi wettam";
+			return "Mosi Thewtam";
+		case "Boss Vampire":
+			return "Turharmac Slilm";
+		case "Boss Gargoyle":
+			return "Drephesh Mejas";
+		case "Boss Homunculus":
+			return "Mosi Dama";
 		case "Player":
 			return "Amurial";
 		default:

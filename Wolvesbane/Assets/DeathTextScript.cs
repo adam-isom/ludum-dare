@@ -13,6 +13,10 @@ public class DeathTextScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (waitingForDeath == null) {
+			waitingForDeath = GameObject.FindGameObjectWithTag("Player");
+			if (waitingForDeath != null) {
+				return;
+			}
 			GetComponent<Text>().text = "You succumb to your wounds. \nYou amassed " + 
 				LogManagerScript.playerCoins +
 					" coins before your grim demise.\nCreatures slain: " + 
