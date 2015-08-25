@@ -20,7 +20,21 @@ public class DeathTextScript : MonoBehaviour {
 			GetComponent<Text>().text = "You succumb to your wounds. \nYou amassed " + 
 				LogManagerScript.playerCoins +
 					" coins before your grim demise.\nCreatures slain: " + 
-					LogManagerScript.playerKills;
+					LogManagerScript.playerKills +
+					"\n\n Press space to restart\nPress escape to quit";
+
+			if (Input.GetKeyDown ("space")) {
+				print ("Restarting game");
+				Destroy(GameObject.Find("SplashCanvas"));
+				Destroy(GameObject.Find("MusicManager"));
+				//Destroy (GameObject.Find("GameManager"));
+
+				Application.LoadLevel (0);
+			}
+
+			if (Input.GetKeyDown ("escape")) {
+				Application.Quit();
+			}
 		}
 	}
 }

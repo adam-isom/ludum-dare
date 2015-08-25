@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour {
 		level = Application.loadedLevel + 1;
 		print ("LEVEL " + level);
 
-		DontDestroyOnLoad(GameObject.Find("UICanvas"));
+		DontDestroyOnLoad(GameObject.Find("SplashCanvas"));
 		DontDestroyOnLoad(GameObject.Find("MusicManager"));
 
 		InitGame();
@@ -83,7 +83,6 @@ public class GameManager : MonoBehaviour {
 	}*/
 
 	void OnGUI() {
-		
 		//Hides black image used between levels
 		if (Input.GetKeyDown ("space") && doingSetup == true) {
 			print ("space key was pressed");
@@ -92,6 +91,10 @@ public class GameManager : MonoBehaviour {
 			levelText.enabled = false;			
 			doingSetup = false;
 			Time.timeScale = 1.0F;
+		}
+
+		if (Input.GetKeyDown ("escape")) {
+			Application.Quit();
 		}
 	}
 
