@@ -4,7 +4,7 @@ using System.Collections;
 public class CreatureBase : MonoBehaviour {
 
 	public enum Power {
-		NONE, WEREWOLF, VAMPIRE
+		NONE, WEREWOLF, VAMPIRE, GARGOYLE
 	};
 
 	public float health;

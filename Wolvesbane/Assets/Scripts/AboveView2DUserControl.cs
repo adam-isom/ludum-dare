@@ -35,6 +35,7 @@ public class AboveView2DUserControl : CreatureBase
 			coinsOwned = LogManagerScript.playerCoins;
 			boltCase.GetComponent<BoltCaseScript>().ammo = LogManagerScript.playerBolts;
 		}
+
     }
 
 
@@ -79,17 +80,22 @@ public class AboveView2DUserControl : CreatureBase
             m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
         }
 		if (hitTimer > 0) {
-			--hitTimer;
+			hitTimer -= 1;
 		}
 		if (suckingBloodTimer > 0) {
-			--suckingBloodTimer;
+			suckingBloodTimer -= 1;
 		}
 		if (regenTimer > 0) {
-			--regenTimer;
+			regenTimer -= 1;
 		} else {
 			regenTimer = regenCooldown;
 			if (currentPower == Power.WEREWOLF && health < maxHealth) {
 				++health;
+			}
+			if (currentPower == Power.GARGOYLE) {
+				armor = 4;
+			} else {
+				armor = 1;
 			}
 		}
 
@@ -116,7 +122,7 @@ public class AboveView2DUserControl : CreatureBase
 		}
 		
 		// Blood sucking key enables trigger collider
-		if (CrossPlatformInputManager.GetButton ("Fire2") && currentPower == Power.NONE) {
+		if (CrossPlatformInputManager.GetButton ("Fire2") && suckingBloodTimer == 0) {
 			this.suckingBlood = true;
 		} else {
 			this.suckingBlood = false;
@@ -206,6 +212,13 @@ public class AboveView2DUserControl : CreatureBase
 				suckingBloodTimer = suckingBloodCooldown;
 				Debug.Log("Damaging other entity: " + damage + " w/ AD: " + armorDivisor);
 				GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundScript>().playSound("bloodsuck");
+				GameObject.FindGameObjectWithTag("LogManager").GetComponent<LogManagerScript>().addMessage("Drank the blood of a " + collider.gameObject.name);
+				if (currentPower == Power.WEREWOLF) {
+					GameObject.FindGameObjectWithTag("LogManager").GetComponent<LogManagerScript>().addMessage("Your wounds slowly close");
+				} else if (currentPower == Power.GARGOYLE) {
+					GameObject.FindGameObjectWithTag("LogManager").GetComponent<LogManagerScript>().addMessage("Your skin hardens");
+				}
+				health = Mathf.Min (maxHealth,health+1);
 				if (monster.TakeDamage(damage, armorDivisor)) {
 					string player_name = GameObject.FindGameObjectWithTag("NameManager").GetComponent<NameManager>().getName("Player");
 					numKills++;

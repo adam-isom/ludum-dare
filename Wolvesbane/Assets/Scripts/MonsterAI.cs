@@ -7,11 +7,13 @@ public class MonsterAI : CreatureBase
 
 	public float moveSpeed;
 	public int rotationSpeed;
+	public float maxSpeed;
 	
 	void Start() 
 	{
 		anim = GetComponent<Animator> ();
 		maxHealth = health;
+		maxSpeed = moveSpeed;
 		/*health = 10;
 		armor = 1;
 		armorDivisor = 1;
@@ -24,6 +26,7 @@ public class MonsterAI : CreatureBase
 	
 	void Update() 
 	{   
+		moveSpeed = maxSpeed * Mathf.Max(0.1f,health/maxHealth);
 		if (isDead) {
 			return;
 		}
