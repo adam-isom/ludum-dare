@@ -28,6 +28,9 @@ public class DeathTextScript : MonoBehaviour {
 				Destroy(GameObject.Find("SplashCanvas"));
 				Destroy(GameObject.Find("MusicManager"));
 				//Destroy (GameObject.Find("GameManager"));
+				LogManagerScript.playerBolts = 0;
+				LogManagerScript.playerKills = 0;
+				LogManagerScript.playerCoins = 0;
 
 				Application.LoadLevel (0);
 			}
