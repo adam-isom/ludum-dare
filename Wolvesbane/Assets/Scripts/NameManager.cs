@@ -34,6 +34,8 @@ public class NameManager : MonoBehaviour {
 			return "Drephesh Mejas";
 		case "Boss Homunculus":
 			return "Mosi Dama";
+		case "Boss Ghost":
+			return "The Inevitability Of Death";
 		case "Player":
 			return "Amurial";
 		default:

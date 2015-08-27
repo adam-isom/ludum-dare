@@ -40,10 +40,7 @@ public class BoltScript : MonoBehaviour {
 					GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundScript>().playSound("crit");
 					string player_name = GameObject.FindGameObjectWithTag("NameManager").GetComponent<NameManager>().getName("Player");
 					GameObject.FindGameObjectWithTag("Player").GetComponent<AboveView2DUserControl>().numKills++;
-					string mon_name = collision.gameObject.name;
-					if (mon_name.Contains("Boss")) {
-						mon_name = GameObject.FindGameObjectWithTag("NameManager").GetComponent<NameManager>().getName(collision.gameObject.name);
-					}
+					string mon_name = GameObject.FindGameObjectWithTag("NameManager").GetComponent<NameManager>().getName(collision.gameObject.name);
 					GameObject.FindGameObjectWithTag("LogManager").GetComponent<LogManagerScript>().addMessage(player_name + " slew " + mon_name);
 				} else {
 					GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundScript>().playSound("hit");

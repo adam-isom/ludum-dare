@@ -222,7 +222,8 @@ public class AboveView2DUserControl : CreatureBase
 				if (monster.TakeDamage(damage, armorDivisor)) {
 					string player_name = GameObject.FindGameObjectWithTag("NameManager").GetComponent<NameManager>().getName("Player");
 					numKills++;
-					GameObject.FindGameObjectWithTag("LogManager").GetComponent<LogManagerScript>().addMessage(player_name + " slew " + collider.gameObject.name);
+					string mon_name = GameObject.FindGameObjectWithTag("NameManager").GetComponent<NameManager>().getName(collider.gameObject.name);
+					GameObject.FindGameObjectWithTag("LogManager").GetComponent<LogManagerScript>().addMessage(player_name + " slew " + mon_name);
 					Destroy(collider.gameObject);
 					target = null;
 				}
